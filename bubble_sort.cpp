@@ -1,6 +1,8 @@
-/* Ã°ÅÝÅÅÐòÔ­Àí£º´ÓÍ·¿ªÊ¼£¬Á½¸öÊýÏà±È½Ï£¬Èç¹ûÒ»¸öÊý´óÓÚËüµÄ
-   ºóÒ»¸öÊý£¬ÄÇÃ´Á½Êý½»»»Î»ÖÃ£¬Ò»Ö±±È½Ïµ½×îºóÁ½¸ö£¬ÏÂÒ»´Î¾Í»áÉÙÅÅÐòÒ»´Î¡£
-   ¸ÅÊö£º×ÜÊÇ´ÓÅÅÐòµÄÊýÖÐÕÒ³ö×î´óµÄÄÇ¸ö£¬²¢½«Ëü·ÅÖÃÔÚ²ÎÓëÅÅÁÐµÄÊýÖÐµÄ×îÎ²¡£ */
+/* å†’æ³¡æŽ’åºåŽŸç†ï¼šä»Žå¤´å¼€å§‹ï¼Œä¸¤ä¸ªæ•°ç›¸æ¯”è¾ƒï¼Œå¦‚æžœä¸€ä¸ªæ•°å¤§äºŽå®ƒçš„
+   åŽä¸€ä¸ªæ•°ï¼Œé‚£ä¹ˆä¸¤æ•°äº¤æ¢ä½ç½®ï¼Œä¸€ç›´æ¯”è¾ƒåˆ°æœ€åŽä¸¤ä¸ªï¼Œä¸‹ä¸€æ¬¡å°±ä¼šå°‘æŽ’åºä¸€æ¬¡ã€‚
+   æ¦‚è¿°ï¼šæ€»æ˜¯ä»ŽæŽ’åºçš„æ•°ä¸­æ‰¾å‡ºæœ€å¤§çš„é‚£ä¸ªï¼Œå¹¶å°†å®ƒæ”¾ç½®åœ¨å‚ä¸ŽæŽ’åˆ—çš„æ•°ä¸­çš„æœ€å°¾ã€‚
+   å†’æ³¡æŽ’åºçš„æ—¶é—´å¤æ‚åº¦ä¸ºO(n^2)ã€‚ */
+
 #include <iostream>
 
 void bubble_sort(int parr[], int n);
@@ -11,7 +13,7 @@ int main()
 
     bubble_sort(arr, sizeof(arr) / sizeof(int));
 
-    /* ÏÔÊ¾Ã°ÅÝÅÅÐòµÄ½á¹û */
+    /* æ˜¾ç¤ºå†’æ³¡æŽ’åºçš„ç»“æžœ */
     for each (auto var in arr)
     {
         std::cout << var << "  ";
@@ -25,10 +27,10 @@ int main()
 void bubble_sort(int parr[], int n)
 {
     int coutd = 0;
-    int tmp = 0;                                 /* ÁÙÊ±±äÁ¿ */
+    int tmp = 0;                                 /* ä¸´æ—¶å˜é‡ */
     for (int i = 0; i != n; ++i)
     {
-        for (int j = 1; j != n - i; ++j)         /* j - 1Ê¼ÖÕÊÇÒÑ¾­±éÀú¹ýµÄÔªËØÖÐ×î´óÖµµÄË÷Òý */
+        for (int j = 1; j != n - i; ++j)         /* j - 1å§‹ç»ˆæ˜¯å·²ç»éåŽ†è¿‡çš„å…ƒç´ ä¸­æœ€å¤§å€¼çš„ç´¢å¼• */
         {
             if (parr[j - 1] > parr[j])
             {
