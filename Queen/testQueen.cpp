@@ -3,7 +3,7 @@
 
 int main()
 {
-    ChessBoard test_queen(8);          /* ²âÊÔ8»ÊºóÎÊÌâ */
+    ChessBoard test_queen(8);          /* æµ‹è¯•8çš‡åé—®é¢˜ */
     test_queen.findSolutions();
 
     std::cout << std::endl;
