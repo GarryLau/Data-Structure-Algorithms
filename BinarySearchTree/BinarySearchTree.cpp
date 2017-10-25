@@ -121,12 +121,16 @@ void BST::interactivePostordor() const
 {
 
 }
-
 /* 清空树-对外接口 */
 void BST::clear()
 {
 	clear(root);
 	root = nullptr;
+}
+/* 清空-对内实现 */
+void BST::clear(BSTNode *p)
+{
+
 }
 /* 判断是否为空树 */
 bool BST::isEmpty() const
@@ -152,11 +156,6 @@ void BST::deleteByCopying(BSTNode *p)
 {
 
 }
-/* 清空-对内实现 */
-void BST::clear(BSTNode *p)
-{
-
-}
 /* 查找-对外接口 */
 int * BST::search(const int &val) const
 {
@@ -165,5 +164,20 @@ int * BST::search(const int &val) const
 /* 查找-对内实现 */
 int * BST::search(BSTNode *p, const int &val) const
 {
-
+    while (nullptr != p)
+    {
+        if (val == p->value)
+        {
+            return &(p->value);
+        }
+        else if (p->value > val)
+        {
+            p = p->left;
+        }
+        else
+        {
+            p = p->right;
+        }
+    }
+    return 0;
 }
