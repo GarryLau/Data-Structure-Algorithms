@@ -1,6 +1,6 @@
 #pragma once
 
-/* Ê÷µÄ½Úµã */
+/* æ ‘çš„èŠ‚ç‚¹ */
 class BSTNode
 {
 public:
@@ -17,31 +17,31 @@ public:
     BST();
     ~BST();
 
-    void breadthFirst();                         /* ¹ã¶ÈÓÅÏÈ±éÀú */
-    void preordor();                             /* Éî¶ÈÓÅÏÈÖ®Ç°Ğò±éÀú */
-    void inordor();                              /* Éî¶ÈÓÅÏÈÖ®ÖĞĞò±éÀú */
-    void postordor();                            /* Éî¶ÈÓÅÏÈÖ®ºóĞò±éÀú */
-    int *search(const int &val) const;           /* ²éÕÒ */
-    void clear();                                /* Çå¿ÕÊ÷ */
-    bool isEmpty() const;                        /* ÅĞ¶ÏÊÇ·ñÎª¿ÕÊ÷ */
-    void insert(const int &val);                 /* ²åÈë */
-    void deleteByMerging(BSTNode *p);            /* ºÏ²¢É¾³ı */
-    void findAndDeleteByMerging(const int& val);
-    void deleteByCopying(BSTNode *p);            /* ¸´ÖÆÉ¾³ı */
+	void breadthFirst() const;                         /* å¹¿åº¦ä¼˜å…ˆéå† */
+	void preordor() const;                             /* æ·±åº¦ä¼˜å…ˆä¹‹å‰åºéå†-å¯¹å¤–æ¥å£ */
+	void inordor() const;                              /* æ·±åº¦ä¼˜å…ˆä¹‹ä¸­åºéå†-å¯¹å¤–æ¥å£ */
+	void postordor() const;                            /* æ·±åº¦ä¼˜å…ˆä¹‹ååºéå†-å¯¹å¤–æ¥å£ */
+	int *search(const int &val) const;                 /* æŸ¥æ‰¾ */
+	void clear();                                      /* æ¸…ç©ºæ ‘ */
+	bool isEmpty() const;                              /* åˆ¤æ–­æ˜¯å¦ä¸ºç©ºæ ‘ */
+	void insert(const int &val);                       /* æ’å…¥ */
+	void deleteByMerging(BSTNode *p);                  /* åˆå¹¶åˆ é™¤ */
+	void findAndDeleteByMerging(const int& val);
+	void deleteByCopying(BSTNode *p);                  /* å¤åˆ¶åˆ é™¤ */
 
 private:
     BSTNode *root;
 
     void clear(BSTNode *p);
     int *search(BSTNode *p, const int &val) const;
-    void preordor(BSTNode *p) const;
-    void inordor(BSTNode *p) const;
-    void postordor(BSTNode *p) const;
+	void preordor(BSTNode *p) const;                   /* æ·±åº¦ä¼˜å…ˆä¹‹å‰åºéå†-é€’å½’å®ç° */
+	void inordor(BSTNode *p) const;                    /* æ·±åº¦ä¼˜å…ˆä¹‹ä¸­åºéå†-é€’å½’å®ç° */
+	void postordor(BSTNode *p) const;                  /* æ·±åº¦ä¼˜å…ˆä¹‹ååºéå†-é€’å½’å®ç° */
     void visit(BSTNode *p) const;
 
 };
 
-BSTNode::BSTNode(BSTNode * lf, BSTNode * rg, const int val)
+BSTNode::BSTNode(BSTNode *lf, BSTNode *rg, const int val)
 {
     left = lf;
     right = rg;
