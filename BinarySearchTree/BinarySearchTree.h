@@ -8,6 +8,7 @@ public:
     BSTNode *right;
     int value;
 
+	BSTNode(const int val = 0);
     BSTNode(BSTNode *lf = nullptr, BSTNode *rg = nullptr, const int val = 0);
 };
 
@@ -44,6 +45,13 @@ private:
 
 };
 
+/* 树节点构造函数 */
+BSTNode::BSTNode(const int val)
+{
+	left = nullptr;
+	right = nullptr;
+	value = val;
+}
 BSTNode::BSTNode(BSTNode *lf, BSTNode *rg, const int val)
 {
     left = lf;
