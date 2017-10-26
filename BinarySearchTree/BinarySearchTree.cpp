@@ -140,7 +140,36 @@ bool BST::isEmpty() const
 /* 插入 */
 void BST::insert(const int &val)
 {
+	if (nullptr == root)
+	{
+		root = new BSTNode(val);
+	}
+	else
+	{
+		BSTNode *pNode = root;
+		BSTNode *pPreNode = nullptr;
+		while (pNode != nullptr)
+		{
+			pPreNode = pNode;
+			if (pNode->value > val)
+			{
+				pNode = pNode->left;
+			}
+			else
+			{
+				pNode = pNode->right;
+			}
 
+		}
+		if (pPreNode->value > val)
+		{
+			pPreNode->left = new BSTNode(val);
+		}
+		else
+		{
+			pPreNode->right = new BSTNode(val);
+		}
+	}
 }
 /* 合并删除 */
 void BST::deleteByMerging(BSTNode *p)
