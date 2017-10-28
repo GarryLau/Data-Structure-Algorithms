@@ -1,27 +1,28 @@
-/* ¶ÑÅÅĞò */
+/* å †æ’åº */
 
 #include <iostream>
 #include <utility>
 #include <iterator>
 #include <algorithm>
 
-/* ½«¸ùÔªËØÑØÊ÷ÏòÏÂÒÆ¶¯ */
+/* å°†æ ¹å…ƒç´ æ²¿æ ‘å‘ä¸‹ç§»åŠ¨ */
 void move_down(int arr[], int index1, int index2);
-/* ¶ÑÅÅĞòµÄÊµÏÖ */
-void heap_sort(int arr[]);
+/* å †æ’åºçš„å®ç° */
+void heap_sort(int arr[], int n);
 
 int main()
 {
-	/* ÓÃÊı×é±íÊ¾Ò»¸ö¶Ñ */
-	int arrheap[] = { 12, 8, 10, 6, 4, 7, 9 };
+	/* ç”¨æ•°ç»„è¡¨ç¤ºä¸€ä¸ªå † */
+	int arrheap[] = { 12, 8, 10, 6, 4, 7, 91 };
+	int n = sizeof(arrheap) / sizeof(int);       /* æ•°ç»„å¤§å° */
+	heap_sort(arrheap, n);
 
-	heap_sort(arrheap);
-
-	/* Êä³ö¶ÑÅÅĞò½á¹û */
-	for (int i = 0; i != sizeof(arrheap) / sizeof(int); ++i)
+	/* è¾“å‡ºå †æ’åºç»“æœ */
+	for (int i = 0; i != n; ++i)
 	{
 		std::cout << arrheap[i] << "  ";
 	}
+
 	std::cout << std::endl;
 	system("pause");
 	return 0;
@@ -29,26 +30,39 @@ int main()
 
 void move_down(int arr[], int index1, int index2)
 {
-	int largestindex = index1 * 2 + 1;	         /* ¶ÔÓÚ¶ÑÀ´Ëµ£¬Èô¸¸½ÚµãµÄË÷ÒıÊÇindex1£¬
-													ÔòÆä×ó×ÓÊ÷µÄË÷ÒıÊÇindex1 * 2 + 1£¬
-													ÓÒ×ÓÊ÷µÄË÷ÒıÊÇindex1 * 2 + 2 */
-	while (largestindex < index2)
+	int largestindex = index1 * 2 + 1;	         /* å¯¹äºå †æ¥è¯´ï¼Œè‹¥çˆ¶èŠ‚ç‚¹çš„ç´¢å¼•æ˜¯index1ï¼Œ
+													åˆ™å…¶å·¦å­æ ‘çš„ç´¢å¼•æ˜¯index1 * 2 + 1ï¼Œ
+													å³å­æ ‘çš„ç´¢å¼•æ˜¯index1 * 2 + 2 */
+	while (largestindex <= index2)
 	{
-		if (arr[largestindex] < arr[largestindex + 1])
+		if (arr[largestindex] < arr[largestindex + 1] && largestindex < index2)
 		{
 			++largestindex;
 		}
-		std::swap(arr[index1], arr[largestindex]);
-		index1 = largestindex;
-		largestindex = index1 * 2 + 1;
+		if (arr[index1] < arr[largestindex])
+		{
+			std::swap(arr[index1], arr[largestindex]);
+			index1 = largestindex;
+			largestindex = index1 * 2 + 1;
+		}
+		else
+		{
+			largestindex = index2 + 1;
+		}
 	}
-
-	return;
 }
 
-
-void heap_sort(int arr[])
+void heap_sort(int arr[], int n)
 {
-
-	return;
+	/* é¦–å…ˆæ ¹æ®æ•°ç»„æ„é€ å‡ºå † */
+	for (int i = n / 2 - 1; i >= 0; --i)
+	{
+		move_down(arr, i, n - 1);
+	}
+	/* å°†å †é¡¶å…ƒç´ æ’é™¤åœ¨å¤–ï¼ŒæŠŠæœ€åä¸€ä¸ªå…ƒç´ æ”¾åœ¨åŸå…ˆå †é¡¶çš„ä½ç½®ï¼Œè°ƒæ•´å…ƒç´ é‡æ„å †ï¼Œå¦‚æ­¤å¾ªç¯ */
+	for (int i = n - 1; i >= 1; --i)
+	{
+		std::swap(arr[0], arr[i]);
+		move_down(arr, 0, i - 1);
+	}
 }
